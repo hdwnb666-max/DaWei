@@ -1,7 +1,5 @@
 <title>要搞清楚的事</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232B4C7E'/><path d='M27 52l15 15 31-33' fill='none' stroke='%23fff' stroke-width='11' stroke-linecap='round' stroke-linejoin='round'/></svg>">
 
 <style>
   :root{
@@ -11,9 +9,10 @@
     --accent:#2B4C7E; --accent-soft:#E2E9F3;
     --done:#2E7D5B; --done-soft:#E1F0E8;
     --warn:#A8542C; --warn-soft:#F7E8DF;
-    --sans:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",system-ui,-apple-system,sans-serif;
-    --serif:"Noto Serif SC","Songti SC","SimSun",Georgia,serif;
-    --mono:ui-monospace,"SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
+    /* 全部用系统自带字体：不联网、无外部依赖，国内打开不再卡 */
+    --sans:"PingFang SC","HarmonyOS Sans SC","MiSans","Microsoft YaHei","Hiragino Sans GB","Noto Sans CJK SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+    --serif:"Songti SC","Noto Serif CJK SC","Source Han Serif SC",Georgia,"Microsoft YaHei",serif;
+    --mono:ui-monospace,"Cascadia Mono","SFMono-Regular",Menlo,Consolas,"Liberation Mono",monospace;
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
