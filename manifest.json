@@ -1,0 +1,16 @@
+{
+  "name": "每日坚持日历",
+  "short_name": "每日坚持",
+  "description": "本地优先的习惯日历：每天记一笔，看着树长大。数据只存在这台设备的浏览器里。",
+  "lang": "zh-CN",
+  "start_url": "./habit.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#121212",
+  "theme_color": "#121212",
+  "icons": [
+    { "src": "./icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "./icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
