@@ -14,6 +14,10 @@
 <link rel="manifest" href="manifest.json">
 
 <title>每日坚持日历</title>
+<!-- 图标备两份：能画 SVG 的用 SVG（小），画不了的退回 PNG。
+     原来只有那个 data: 的 SVG —— 有些浏览器不认 data: 的 favicon，
+     结果加到主屏时图标退回成默认的「网页」地球。 -->
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23121212'/><rect x='20' y='26' width='60' height='54' rx='8' fill='none' stroke='%237fa8dc' stroke-width='8'/><circle cx='38' cy='60' r='7' fill='%23256b4d'/><circle cx='62' cy='60' r='7' fill='%238f3a37'/></svg>">
 
 <style>
@@ -1784,6 +1788,16 @@ SKINS.forEach(s => {
 let savedSkin = SKINS[0].id;
 try { savedSkin = localStorage.getItem(SKIN_KEY) || savedSkin; } catch(e){}
 applySkin(savedSkin);
+
+/* ---------------- 离线缓存 ---------------- */
+/* 没有 service worker，Chrome 就不认这是「可安装的 App」——
+   加到主屏只会是个书签快捷方式：图标退回 favicon、名字用网页标题、点开还带地址栏。
+   file:// 下没有 SW，所以只在 http(s) 上注册。 */
+if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0){
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
 
 /* ---------------- 启动 ---------------- */
 renderAll();
